@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
+    <title>{% block title %}LL Host!!!{% endblock %}</title>
+    <style>
+        html a{
+            text-decoration: none;
+        }
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: rgb(118, 118, 118); 
+        }
+        h1{
+            color: rgb(255, 208, 0);
+        }
+        .V1{
+            color: rgb(255, 255, 255);
+            
+        }
+        .V1 h2, .V1 p{
+            padding: 0px;
+            margin: 0px;
+        }
+        .S1{
+            color: aliceblue;
+        }
+        .A-general{
+            color: rgb(133, 253, 255);
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        .A-general:hover{
+            color: aliceblue;
+            transition: 0.5s;            
+        }
+        .Admin-config p{
+            color: white;
+        }
+    </style>
+</head> 
+<body>
+    <h1>Ola LL!!! - eres {{ userH }}</h1>
+    <div class="V1">
+        <h2>Este sera tu host</h2>
+        <p>Solo tu como administrados tendras acceso a esta vista, para pruebas y errores</p>
+    </div>
+    <hr>
+    <section class="S1">
+        <h2 class="">Seccion de paginas y modelos</h2>
+        <a href="{{ url_for('index') }}" class="A-general">Main</a>
+        <a href="{{ url_for('login') }}" class="A-general">Login</a>
+        <a href="{{ url_for('login') }}">Sign up</a>
+        <a href="{{ url_for('catalogo') }}" class="A-general">Ir a Ofertas</a>
+        <a href="{{ url_for('perfil_vista') }}" class="A-general">Perfil Usuario</a>
+    </section>
+    <hr>
+    <section class="Admin-config">
+        <p>Esto solo estara disponibles para dos usuarios <span>IsaacLL y KobiB</span></p>
+        <a href="{{ url_for('admin_vitrina') }}" class="A-general">Manipular BBDD</a>
+        <a href="{{ url_for('promover_usuario', Var='promo') }}" class="A-general">Crear usuario Admin</a>
+        <a href="{{ url_for('noticia_admin', Var='news') }}" class="A-general">Configurar noticias</a>
+    </section>
+    <hr>
+    <h2>Pruebas de BD</h2>
+    <a href="{{ url_for('insert') }}">insert</a> 
+    <a href="{{ url_for('select') }}">select</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>Pruebas de Formulario</h2>
+    <a href="{{ url_for('Sign_up') }}">Sign</a>
+    <br>
+    <a href="{{ url_for('login') }}">Log</a>
+    <br>
+    <br>
+    <h2>Ya vimos lo Primordial y los formularios, ahora veremos las vistas del admin</h2>
+    <p>Esto solo estara disponibles para dos usuarios <span>IsaacLL y KobiB</span></p>
+    <a href="" class="A-general">Manipular BBDD</a>
+    <a href="" class="A-general">Crear usuario Admin</a>
+    
+    <br><br><br>
+    <h3>Cookies set</h3>
+    <a href="{{ url_for('Cookies') }}" class="A-general">Cookies</a>
+    <h2>Imagenes</h2>
+
+
+    
+</body>
+</html>
+
+

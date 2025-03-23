@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% extends "base.html" %}
+    {% from "_render_elements.html" import render_input %}
+    {% block title %}Fotos LL!!!{% endblock %}
+    {% block content %}
+    <style>
+        body{
+            background-color: rgb(112, 112, 112);
+        }
+        form{
+            text-align: center;
+        }
+        .casilla-titulo{
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+            
+        }
+        .Definir-titulo{
+            padding: 10px 40px;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+        .definicion{
+            font-size: 40px;
+            color: aqua;
+        }
+        .Prefacio{
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+        }
+        .casilla-desc{
+            padding: 0px;
+            
+        }
+        .Muestra-noticia{
+            color: rgb(143, 250, 250);
+            margin-left: 10px;
+        }
+        .subir-new{
+            cursor: pointer;
+        }
+        .mostrar-archivo{
+            font-size: 30px;
+            color: aliceblue;
+            margin-bottom: 20px;
+        }
+        .mostrar-archivo h3{
+            margin-bottom: 10px;
+        }
+        .subir-noticia{
+            color: aliceblue;
+            background-color: black;
+            padding: 20px 40px;
+            cursor: pointer;
+        }
+        .definicion2{
+            color: floralwhite;
+        }
+        .casilla-id{
+            font-size: 20px;
+            color: floralwhite;
+        }
+        .preview{
+            display: flex;
+        }
+        .preview b{
+            color: black;
+        }
+        .links{
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    {% if noticias and Var == 'news' %}
+
+        <form action="{{ url_for('noticia_admin', Var='news') }}" method="post" enctype="multipart/form-data">
+            <h2 class="definicion">Subir noticia</h2>
+            <div class="mostrar-archivo">
+                <h3>Selecciona tu foto</h3>
+                <label for="archivo" class="subir-new"><i class="fa-regular fa-image fa-2xl" style="color: #3c3e3e;"></i></label>
+                <input type='file' id='archivo' name='archivo' id='archivo' style="display: none;" ><br> 
+            </div>          
+            <label for="titulo" class="casilla-titulo">Título:</label><br> 
+            <input type="text" id="titulo" name="titulo" class="Definir-titulo"><br>
+            
+            <label for="descripcion" class="Prefacio">Descripción:</label><br>
+            <textarea id="descripcion" name="descripcion" class="casilla-desc" rows="10" cols="50"></textarea><br>
+            
+            <button type='submit' class="subir-noticia">Subir Noticia</button>
+            
+            
+        </form>
+        <hr>
+        <form method="POST" action="">
+            <h2 class="definicion2">Eliminar Noticia</h2>
+            <label for="noticia_id" class="casilla-id">ID noticia</label><br>
+            <input type="number" id="noticia_id" name="noticia_id" class="Definir-titulo" required><br>
+            <button type="submit" class="subir-noticia">Eliminar</button>
+        </form>
+               
+        {% for noticia in ultimas_noticias %}
+            <div class="preview">
+                <h3 class="Muestra-noticia"><b>Titulo:</b> {{ noticia.titulo }}</h3>
+                <h3 class="Muestra-noticia"><b>Id:</b> {{ noticia.id }}</h3>
+            </div>
+            {% endfor %}
+            <p>{{ Var }} si</p> 
+            <a href="{{ url_for('index') }}" class="links">Volver</a>        
+            <a href="{{ url_for('promover_usuario', Var = 'promo') }}" class="links">Crear usuario Admin</a>
+    {% elif  Var == 'promo' %}
+        <h3>Promover Usuario</h3>
+        {% print(Var) %}
+        <p>Promover a otro usuario como administrador.</p>
+        <form method="POST" action="{{ url_for('promover_usuario') }}">
+            <label for="username">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" required>
+            <input type="hidden" name="action" value="promover">
+            <button type="submit">Promover Usuario a Admin</button>
+        </form>
+        <form method="POST" action="{{ url_for('promover_usuario') }}">
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" id="username" name="username" required>
+                <input type="hidden" name="action" value="revertir">
+                <button type="submit">Revertir Usuario</button>
+        </form>        
+        <a href="{{ url_for('index') }}">Volver</a>
+        <a href="{{ url_for('noticia_admin', Var='news') }}" class="A-general">Configurar noticias</a>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+    {% endwith %}
+    {% endif %}
+
+    {% endblock %}
+</body>
+
+</html>

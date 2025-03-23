@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_main, sobre_nosotros %}
+{% block title -%}
+Politicas LL!!!
+{% endblock %}
+{% block content %}
+<body>
+    {{ render_header_main('index', 'Inicio') }}
+    {{ sobre_nosotros('inicio', 'index') }}
+    <hr>
+    <h1 style="text-align: center;">Pagina Demostrativa, gracias por visitar</h1>
+</body>
+{% endblock %}
+</html>

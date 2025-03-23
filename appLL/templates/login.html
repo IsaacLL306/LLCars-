@@ -1,0 +1,55 @@
+<!-- login -->
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_form, render_input, render_messages %}
+{% block title -%}
+Login
+{%- endblock %}
+
+{%- block content %}
+
+
+{{ render_header_form() }}
+{{ render_messages(messages) }}
+<!-- Espacio nuevo -->
+<div class="login-box">
+    <h2>Log in</h2>
+    <form action="{{ url_for('login') }}"  method="post">
+      <div class="user-box">
+        <input type="text" name="username" required>
+        <label>User name</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" required>
+        <label>Password</label>
+      </div>
+      <button type="submit" class="animated-submit"> <span></span> <span></span> <span></span> <span></span> Login </button>
+      <div class="links">
+        <a href="{{ url_for('Sign_up') }}">Registrarse</a> 
+        <a href="{{ url_for('Sign_up') }}">Recuperar usuario</a>
+      </div>
+      <a href="{{ url_for('index') }}" class="back">Back Home</a>
+    </form>
+    
+  </div>
+
+
+
+
+
+
+
+
+
+<!--<h1>Login</h1>
+<h2>Espacio para Registrarse - Espacio viejo</h2>
+<form action="{{ url_for('login') }}"  method="post">
+    <p><input type="text"  name="username"></p>
+    <p><input type="text"  name="password"></p>
+    <input type="submit"  value="Login">
+    <input type="submit" class="animated-submit" value="Login">
+</form>
+<h3>registrate aca</h3>
+<a href="{{ url_for('Sign_up') }}">Sign</a>
+
+<a href="{{ url_for('index') }}">Volver</a>-->
+{% endblock %}

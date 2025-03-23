@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_form2, sobre_nosotros %}
+{% block title -%}
+DocLL
+{%- endblock %}
+{% block content -%}
+{{ render_header_form2() }}
+{{ sobre_nosotros('Inicio', 'index') }}
+<hr>
+<style>
+    /* Estilos generales */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .hidden-section {
+        display: none; /* Oculta la sección al cargar la página */
+        margin-top: 20px;
+        padding: 15px;
+        background: #e9ecef;
+        border-radius: 5px;
+    }
+
+    .btn {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 15px;
+        text-align: center;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+    .-inicio{
+        text-align: center;
+    }
+    .log-sign{
+        text-align: center;
+    }
+    .contactar{
+        border-style: solid;
+        background-color: rgb(156, 101, 0);
+        border-radius: 10px;
+        color: #ffffff;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .contacto{
+        display: block;
+        align-items: center;
+        
+    }
+    .final{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Bienvenido</h1>
+    <p>Aca puedes ver la documentacion sobre este Proyecto.</p>
+    
+    
+    <!-- Botón para mostrar la sección oculta -->
+    <button class="btn" id="ver-mas-btn">Ver más</button>
+    
+    <!-- Sección oculta -->
+    <div class="hidden-section" id="hidden-section">
+        <h2>DocLL</h2>
+        <img src="{{ url_for('static', filename='img/Docs/MarcaLL.png') }}" alt="" width="300" height="100">
+        <p>Documentacion de pagina LLCars@, Diseñada y elaborada por IsaacLL</p>
+
+        <h3>Proposito</h3>
+        <p>LL tiene como proposito mostrar este proyecto unicamente como exhibicion, para un portafolio personal <br> Este apartado presentara una breve guia para el usuario</p>
+
+        <section >
+        <h3>1. Inicio</h3>
+        <div class="-inicio">
+            <img src="{{ url_for('static', filename='img/Docs/inicio.png') }}" alt="" height="300" width="400">
+            <img src="{{ url_for('static', filename='img/Docs/noticias y footer.png') }}" alt="" height="300" width="400">
+        </div>
+        <p>Vista inicial de usuario, en la cual podra visualizar las opciones principales de la pagina <br>
+        <b> -Ver catalogo de ofertas- -Ver Vitrina completa- -Compartir o vender Vehiculo-</b> <br>
+        junto con botones hacia diferentes apartados como - Creditos, Noticias, contacto y redes sociales, entre otros -        
+        </p>
+        </section>
+        <section>
+        <h3>2. Exposicion</h3>
+        <img src="{{ url_for('static', filename='img/Docs/Sobre nosotros.png' ) }}" alt="" width="600" height="300"><p>Apartado para dar una breve presentacion al Proyecto <br>con variantes en las opciones segun la pagina en la que se encuentre posicionado el usuario</p>
+        <img src="{{ url_for('static', filename='img/Docs/ofertas.png') }}" alt="" width="600" height="300"> <p>Muestra de ofertas</p>
+        <img src="{{ url_for('static', filename='img/Docs/buscador de vehiculos.png') }}" alt="" width="600" height="300"><p>Vitrina y buscador de vehiculos</p>
+        </section>
+        <section>
+        <h3>3. Secciones de Usuario</h3>
+        <p>Todas las opciones del Usuario</p>
+        <div class="log-sign">
+            <img src="{{ url_for('static', filename='img/Docs/login.png') }}" alt="" width="350" height="200">
+            <img src="{{ url_for('static', filename='img/Docs/sign.png') }}" alt="" width="350" height="200">
+            <p>Logearse o registrarse</p>
+        </div>
+        <img src="{{ url_for('static', filename='img/Docs/VehiculoUser.png') }}" alt="" width="350" height="200"> <p>Opciones para vender un vehiculo propio o compartir tu vehiculo con las demas personas</p>
+        <img src="{{ url_for('static', filename='img/Docs/opciones de usuario.png') }}" alt="" width="350" height="200">
+        <p>Vista de usuario en la cual se almacenara los vehiculos subidos en cada seccion</p>
+        </section>
+        <h2 class="final">Gracias por visitarnos</h2>
+
+        
+        <div class="contacto">
+            <button onclick="window.location.href='mailto:isaaclealga@gmail.com'" class="btn contactar">Contactar LL</button>
+            <button class="btn" id="ver-mas-btn">Ir a inicio</button>
+        </div>
+        
+    </div>
+</div>
+<!--  -->
+<script>
+    // Script para mostrar la sección oculta al presionar el botón
+    document.getElementById('ver-mas-btn').addEventListener('click', function() {
+        const hiddenSection = document.getElementById('hidden-section');
+        hiddenSection.style.display = 'block'; // Muestra la sección oculta
+        this.style.display = 'none'; // Oculta el botón "Ver más"
+    });
+</script>
+{%- endblock %}

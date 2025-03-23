@@ -1,0 +1,135 @@
+<!-- Ola -->
+{% macro render_header_form() %}
+{% set H1_LL = "LL Cars@" %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/animacion.css')}}">
+</head>
+<header>
+    <div class="CC1">
+        <a href="{{ url_for('index') }}"><h1 class="CC1-H1"> {{ H1_LL }} </h1></a>
+        <nav class="CC1-A">
+        <a href="{{ url_for('politicas_condiciones') }}">Politicas y condiciones</a>
+        <a href="https://www.youtube.com/watch?v=5yeGhfL0zCU" target="_blank">Redes</a>
+        </nav>
+    </div>
+</header>
+{% endmacro %}
+{% macro render_header_form2() %}
+{% set H1_LL = "LL Cars@" %}
+<header>
+    <div class="CC1">
+        <a href="{{ url_for('index') }}"><h1 class="CC1-H1"> {{ H1_LL }} </h1></a>
+        <nav class="CC1-A">
+        <a href="{{ url_for('politicas_condiciones') }}">Politicas y condiciones</a>
+        <a href="https://www.youtube.com/watch?v=5yeGhfL0zCU" target="_blank">Redes</a>
+        </nav>
+    </div>
+</header>
+{% endmacro %}
+
+{% macro render_header_main(susto, Hola) %}
+{% set H1_LL = "LL Cars@" %}
+<header>
+    <div class="CC1">
+        <h1 class="CC1-H1"> {{ H1_LL }} </h1>
+        <nav class="CC1-A">
+        <a href="{{ url_for(susto) }}">{{ Hola }}</a>
+        <a href="https://www.facebook.com/profile.php?id=61561786170545" target="_blank">Redes</a>
+        <a href="{{ url_for('perfil_vista') }}">Profile</a>           
+        </nav>
+    </div>
+</header>
+{% endmacro %}
+
+{% macro render_input(name, placeholder, type="text") %}
+    <p><input type="{{ type }}"  name="{{ name }}" placeholder="{{ placeholder }}" required></p>
+{% endmacro %}
+
+{% macro render_footer_general(f_link, Insta_link, YT_link) %}
+<style>
+    footer{
+        margin-top: 60px;
+    }
+</style>
+<footer>
+    <div class="footercontainer">
+        <div class="enlaces-footer">
+            <a href="{{ f_link }}"><i class="fa-brands fa-facebook"></i></a>
+            <a href="{{ Insta_link }}"><i class="fa-brands fa-instagram"></i></a>
+            <a href="{{ YT_link }}"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footerNav">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Opciones</a></li>
+                <li><a href="{{ url_for('Documentacion_LLConsesionaria') }}">Sobre nosotros</a></li>
+                <li><a href="mailto:isaaclealga@gmail.com">Contactanos</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+{% endmacro %}
+
+{% macro render_header_user(nombre) %}
+<body>
+    <header>
+        <div class="CC1">
+            <a href="{{ url_for('index') }}"><h1 class="CC1-H1"> {{ nombre }} </h1></a>
+            <nav class="CC1-A">
+            <a href="{{ url_for('politicas_condiciones') }}">Politicas y condiciones</a>
+            <a href="https://www.youtube.com/watch?v=5yeGhfL0zCU" target="_blank">Redes</a>
+            </nav>
+        </div>
+    </header>
+</body>
+{% endmacro %}
+
+{% macro Catalogo_de_ofertas() %}
+{% endmacro %}
+
+{% macro render_messages(messages) %}
+{% with messages = get_flashed_messages(category_filter=["succes"]) %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li class="succes">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% with messages = get_flashed_messages(category_filter=["error"]) %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li class="error">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% endmacro %}
+
+{% macro add_new() %}
+<form action="">
+    
+</form>
+{% endmacro %}
+
+{% macro sobre_nosotros(arg_tf, arg_df) %}
+<!-- 
+arg_tf: Argumento titulo funcion
+arg_df: Argumento direccion funcion
+-->
+<div class="presentacion">
+    <div class="presentacion-escrito">
+        <h2 class="Titulo-ofertas">Sobre nosotros</h2>
+        <p class="">LL tiene como objetivo ayudarte en tu desicion <br> para que consigas un vehiculo que se ajuste <br> a tu confort, con el que puedas estar completamente <br> comodo
+    </div>
+    <div class="presentacion-muestra">
+        <img src="{{ url_for('static', filename='img/present.jpg') }}" alt="">
+        <div class="links-presentacion">
+            <a href="https://www.google.com/maps/search/plaza+bolivar/@10.4857547,-66.8925953,13z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDMxOC4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D">Ubicaciones</a>
+            <a href="mailto:isaaclealga@gmail.com">Contacto</a>
+            <a href="{{ url_for(arg_df) }}">{{ arg_tf }}</a>
+        </div>              
+    </div>        
+</div>
+{% endmacro %}

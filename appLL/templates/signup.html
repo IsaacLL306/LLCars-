@@ -1,0 +1,38 @@
+<!-- Metodo Post -->
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_form, render_input, render_footer_general %}
+{% block title %}
+Sing Up!!
+{% endblock %}
+
+{% block content %}
+
+
+{{ render_header_form() }}
+<div class="login-box">
+    <h2>Sign LL</h2>
+    <form action="{{ url_for('Sign_up') }}"  method="post">
+      <div class="user-box">
+        <input type="email" name="email" required>
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="username" required>
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" required>
+        <label>Password</label>
+      </div>
+      <button type="submit" class="animated-submit"> <span></span> <span></span> <span></span> <span></span> Sign up </button>
+      <div class="links">
+        <a href="{{ url_for('login') }}">Ya tango una cuenta</a> 
+        
+      </div>
+      <a href="{{ url_for('index') }}" class="back">Back Home</a>
+    </form>
+</div>
+<!--{{ render_footer_general() }}-->
+
+{% endblock %}
+

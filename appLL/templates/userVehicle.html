@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_main, sobre_nosotros, render_header_form2 %}
+{% block title -%}
+ShareLL
+{%- endblock %}
+{% block content -%}
+{{ render_header_form2() }}
+<style>
+    /* Estilo general */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 15px;
+        margin: 10px 5px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+    }
+
+    .btn-vender {
+        background-color: #007bff;
+    }
+
+    .btn-vender:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-compartir {
+        background-color: #28a745;
+    }
+
+    .btn-compartir:hover {
+        background-color: #1e7e34;
+    }
+
+    /* Estilo del formulario */
+    .form-container {
+        display: none;
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select,
+    input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .form-group-inline {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .form-group-inline > div {
+        flex: 1;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>¿Qué deseas hacer?</h1>
+    <a class="btn btn-vender" onclick="showForm('sell')">Vender</a>
+    <a class="btn btn-compartir" onclick="showForm('share')">Compartir</a>
+
+    <!-- Formulario para Vender -->
+    <div id="sell-form" class="form-container">
+        <h2>Vende tu vehiculo</h2>
+        <form action="/vender" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="marca-vender">Marca:</label>
+                <input type="text" id="marca-vender" name="marca" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="modelo-vender">Modelo:</label>
+                <input type="text" id="modelo-vender" name="modelo" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="año-vender">Año:</label>
+                <input type="number" id="año-vender" name="año" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="precio-vender">Precio:</label>
+                <input type="number" id="precio-vender" name="precio" placeholder="" required>
+            </div>
+            <div class="form-group-inline">
+                <div>
+                    <label for="foto-vender">Foto del vehículo:</label>
+                    <input type="file" id="foto-vender" name="foto" accept="image/*" required>
+                </div>
+                <div>
+                    <label for="tipo-vender">Tipo de vehículo:</label>
+                    <select id="tipo-vender" name="tipo" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="carro">Carro</option>
+                        <option value="moto">Moto</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comentario-vender">Detalles:</label>
+                <textarea id="comentario-vender" name="comentario" placeholder="Detalles sobre el vehículo..." required></textarea>
+            </div>
+            <button type="submit">Publicar Venta</button>
+        </form>
+    </div>
+
+    <!-- Formulario para Compartir -->
+    <div id="share-form" class="form-container">
+        <h2>Comparte con nosotros tu vehiculo</h2>
+        <form action="/compartir" method="POST">
+            <div class="form-group">
+                <label for="marca-compartir">Marca:</label>
+                <input type="text" id="marca-compartir" name="marca" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="modelo-compartir">Modelo:</label>
+                <input type="text" id="modelo-compartir" name="modelo" placeholder="" required>
+            </div>
+            <div class="form-group-inline">
+                <div>
+                    <label for="foto-compartir">Foto del vehículo:</label>
+                    <input type="file" id="foto-compartir" name="foto" accept="image/*">
+                </div>
+                <div>
+                    <label for="tipo-compartir">Tipo de vehículo:</label>
+                    <select id="tipo-compartir" name="tipo" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="carro">Carro</option>
+                        <option value="moto">Moto</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comentario-compartir">Comentario:</label>
+                <textarea id="comentario-compartir" name="comentario" placeholder="Detalles sobre el vehículo..."></textarea>
+            </div>
+            <button type="submit">Compartir</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function showForm(type) {
+        // Ocultar todos los formularios
+        document.getElementById('sell-form').style.display = 'none';
+        document.getElementById('share-form').style.display = 'none';
+
+        // Mostrar el formulario según la selección
+        if (type === 'sell') {
+            document.getElementById('sell-form').style.display = 'block';
+        } else if (type === 'share') {
+            document.getElementById('share-form').style.display = 'block';
+        }
+    }
+</script>
+{%- endblock %}

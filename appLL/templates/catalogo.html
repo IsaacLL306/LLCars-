@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_main, render_footer_general, sobre_nosotros %}
+{% block title -%}
+Ofertas!!!
+{% endblock %}
+{% block content %}
+
+{{ render_header_main('index', 'INICIO') }}
+{{ sobre_nosotros('Vitrina LL', 'vitrina') }}
+
+<hr>
+
+<section class="CN">
+<h2 class="Titulo-ofertas">Ofertas disponibles</h2>
+<div class="normalC">    
+    {% for i in carros_normales %}
+    <div class="carro">
+        <img src="{{ url_for('static', filename='img/cars/' + i.imagen) }}" alt="" height="250" width="250">
+        <div class="contenido">
+            <ul>
+                <p class="detalless">{{ i.Modelo }} -- {{ i.Marca }}</p>
+                <p>{{ i.año }}</p>
+                <p class="precio">{{ i.precio }}</p>
+            </ul>
+            <a href="{{ url_for('ver_vehiculo', modelo=i.Modelo) }}" class="botonDetalles">Ver carro</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</section>
+
+<section class="CPremium">
+    <h2 class="ofertas-premium">Carros de lujo</h2>
+<div class="normalC"> 
+    {% for vehiculo in PremiumH %}
+    <div class="carro">
+        <img src="{{ url_for('static', filename='img/cars/' + vehiculo.imagen) }}" alt="" height="250" width="250">
+        <div class="contenido">
+            <ul>
+                <p class="Marca">{{ vehiculo.Marca }}</p>
+                <p class="ModeloP">{{ vehiculo.Modelo }}</p>
+                <p class="Emblema"> {{ vehiculo.Emblema }} </p>
+                <p class="precio">{{ vehiculo.precio }}</p>
+            </ul>
+            <a href="{{ url_for('ver_vehiculo', modelo=vehiculo.Modelo) }}" class="botonDetalles">Ver Vehiculo</a>
+        </div>
+    </div>            
+    {% endfor %}
+</div>
+</section>
+
+<section class="moto">
+    <h2 class="moto-bajocc">Ofertas en Motos</h2>
+    <p class="moto-bajocc-p">Bajo cc</p>
+<div class="normal-bike normalC">
+    {% for h in motos_ofertas %}
+    <div class="moto carro">
+        <img src="{{ url_for('static', filename='img/bikes/' + h.imagen) }}" alt="" height="250" width="250">
+        <div class="contenido">
+            <div class="contenido">
+                <ul>
+                    <p class="detalless">{{ h.Marca }}</p>
+                    <p class="detalless">{{ h.Modelo }} -- {{ h.cc }}cc</p>
+                    <p>{{ h.año }}</p>
+                    <p class="precio">{{ h.precio }}</p>
+                </ul>
+                <a href="{{ url_for('ver_vehiculo', modelo=h.Modelo) }}" class="botonDetalles">Ver moto</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</section>
+
+<section class="superbike">
+    <h2 class="super-B">Ofertas en Supermotos</h2>
+    <p class="super-BP">Alto cc</p>
+<div class="normal-bike normalC">
+    {% for s in superbikes %}
+    <div class="moto carro">
+        <img src="{{ url_for('static', filename='img/bikes/' + s.imagen) }}" alt="" height="250" width="250">
+        <div class="contenido">
+            <div class="contenido">
+                <ul>
+                    <p class="Marca">{{ s.Marca }}</p>
+                    <p class="ModeloP">{{ s.Modelo }}</p>
+                    <p class="Emblema">{{ s.Categoria }} -- {{ s.cc }}cc</p>
+                    <p class="precio">{{ s.precio }}</p>
+                </ul>
+                <a href="{{ url_for('ver_vehiculo', modelo=s.Modelo) }}" class="botonDetalles">Ver moto</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</section>
+<footer>
+    {{ render_footer_general('https://www.facebook.com/profile.php?id=61561786170545', 'https://www.instagram.com/isaacll_306/', 'https://www.youtube.com/@elyolfrahd8001') }}
+</footer>
+
+
+{% endblock %}

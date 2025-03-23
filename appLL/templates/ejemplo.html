@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ tituloH }}</title>
+    <style>table,th,td {
+        border: 1px solid blueviolet;
+    }</style>
+</head>
+<body>
+    <header>
+        <h1>{{ H1_LL }}</h1>
+
+    </header>
+    <table>
+        <tr>
+            <th>Usuario </th>
+            <th>Fase</th>
+            <th>siono</th>
+        </tr>
+        <tr>
+            <td>LL</td>
+            <td>Proyecto</td>
+            <td>no</td>
+        </tr>
+        <tr>
+            <td>Kobi B</td>
+            <td>Facebook</td>
+            <td>si</td>
+        </tr>
+
+    </table>
+
+    <nav>
+        
+        <ul>
+            <h3 class="Medium">Siguenos</h3>
+            <li style="color:blue; list-style-type: square;" value="hola2">hola</li>
+            <li>
+                <ol>
+                    <li value="8">Elemento</li>
+                </ol>
+            </li>
+        </ul>
+        
+        
+        
+    </nav>
+    <img src="{{url_for('static', filename='img/ruta.jpeg')}}" alt="no" width="300" height="300">
+    <form action="">
+        <label for="nombre" >Nombre</label>
+        <input type="Text" name="" id="nombre" placeholder="User">
+
+        <label for="comentario"></label>
+        <textarea type="text" name="comentario" placeholder="comenta aqui" cols="50" rows="10"></textarea>
+        <button type="reset">enviar</button>
+        
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,603 @@
+/* Estilos General */
+body{    
+    margin:0px;
+    padding: 0px;
+}
+a{text-decoration: none; color: aqua;}
+header{
+    background-color: rgb(114, 114, 114);
+}
+
+/* Estilos Index */
+
+.CC1-H1{color: rgb(255, 255, 255); margin-left: 20px;}
+.CC1{
+    display: flex;
+    justify-content: space-between;
+}
+.CC1-A{
+    margin-top: 25px;
+    margin-right: 50px;
+}
+.CC1-A a{
+    justify-content: space-between;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+}
+.CC1-A a:hover{
+    color: aqua; 
+    transition: 0.5s;
+}
+/* Bloque 1  - Opciones */
+
+.BLOQUE1{
+    /*background-image: url(../img/NFS.jpg);*/
+    background-size: 1380px 700px;
+    margin-top: 0px;
+    padding: 0px;
+}
+.BLOQUE1 h2{
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    margin-bottom: 0px;
+    
+    padding: 0px;
+}
+.BLOQUE1 h3{
+    color: green;
+    margin-top:0px;
+    margin-left: 20px;
+    padding: 0px;
+}
+.cuadros{
+    display: flex;
+    justify-content:space-around;
+    height: 600px;  
+    margin-bottom: 0px;
+}
+.elemento-cuadros img{
+    width: 250px;
+    height: 400px;
+}
+.elemento-cuadros{
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    margin-top: 20px;
+    background-color: rgba(117, 117, 117, 0.737);
+    
+    
+    width: 250px;
+    text-align: center;
+    border-width: 0.1rem;  
+    max-height: 480px; 
+}
+.elemento-cuadros p{
+    color: black;
+    transition: 0.50s;
+    font-size: 20px;
+}
+.elemento-cuadros p:hover{
+    color: rgb(0, 255, 255);
+    transition: 0.40s;
+}
+
+/* Bloque 2 - Noticias */
+
+.BLOQUE2 h2{
+    font-size: 30px;
+    color: rgb(128, 111, 90);
+    padding: 30px;
+    margin-left: 30px;
+    text-align: center;
+}
+.seguridad{
+    text-align: center;
+    color: rgb(88, 89, 86);
+    font-size: 20px;
+}
+.noticias-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 10px;
+}
+.noticias{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.noticias h4{
+    margin-top: 2px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    padding: 0px;
+    color: rgb(149, 154, 81);
+    text-align: center;
+}
+.noticias p{
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.Muestra-noticia{
+    color: aliceblue;
+}
+
+/* Footer */
+
+footer{
+    /*background-color: rgb(0, 0, 0);*/
+    background-color: #111;
+    color: wheat;
+    padding: 5px;
+}
+.footercontainer{
+    width: 100%;
+    padding: 70px 30px 20px ;
+}
+.enlaces-footer{
+    display: flex;
+    justify-content: center;
+}
+.enlaces-footer a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+.enlaces-footer a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.enlaces-footer a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+.enlaces-footer a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav{
+    margin: 30px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.footerNav ul li a{
+    color:white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    margin: 0px;
+}
+.footerBottom p{
+    color: white;
+}
+.LL-dev{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+@media (max-width: 700px){
+    .footerNav ul{
+        flex-direction: column;
+    } 
+    .footerNav ul li{
+        width:100%;
+        text-align: center;
+        margin: 10px;
+    }
+    .socialIcons a{
+        padding: 8px;
+        margin: 4px;
+    }
+}
+
+.succes{
+    color: rgb(14, 152, 2);
+}
+.error{
+    color: red;
+}
+
+/*#Carros*/
+
+.CN h2{
+    color: rgb(100, 75, 41);
+    text-align: center;
+    font-size: 30px;
+}
+.moto-bajocc{
+    text-align: center;
+    color:rgb(100, 75, 41);
+    margin-top: 100px;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.moto-bajocc-p{
+    text-align: center;
+    color:rgb(100, 75, 41);
+    font-size: 20px;
+    margin-top: 0px;
+}
+.normalC{
+    margin-left: 20px;
+    margin-right:  20px;
+    display: flex;
+    justify-content: space-around;
+}
+.super-B{
+    color: #0056b3;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.super-BP{
+    color: #0056b3;
+    text-align: center;
+    margin-top: 0px;
+    font-size: 20px;
+}
+.carro{
+    border-style: solid;
+    border-width: 1px;
+    max-width: 250px;
+    background-color: rgb(169, 169, 169);
+}
+.contenido{
+    margin: 0px 0px;
+}
+.contenido ul { padding: 0; margin: 0px; }
+.detalless{
+    margin: 2px 10px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+.precio{
+    color: rgb(2, 99, 2);
+    font-size: 20px;
+    padding: 10px 7px;
+    margin: 0px;
+}
+.botonDetalles{
+    color: rgb(255, 255, 255);
+    background-color: rgb(52, 52, 52);
+    padding: 10px 40px;
+    display: block;
+    text-align: center;
+}
+.botonDetalles:hover{
+    color: aqua;
+    transition: 0.5s;
+}
+
+
+
+.CPremium{ /* Seccion premium */
+    margin-top: 100px;
+}
+.ofertas-premium{
+    color: rgb(58, 0, 129);
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.ofertas-premium:hover{
+    color: rgb(91, 1, 225);
+    transition: 0.5s;
+}
+.Marca{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size:30px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.Marca:hover{
+    color: aqua;
+    transition: 0.5s;
+}
+.ModeloP{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size:40px;
+    margin-top: 0px;
+}
+.Emblema{
+    color:rgb(114, 74, 0);
+    font-size: 20px;
+}
+
+
+
+.back{
+    color: azure;
+}
+.back:hover{
+    color: aqua;
+    transition: 0.5s;
+}
+.presentacion{
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+    margin-top: 30px;
+}
+.presentacion-escrito{
+    display: block;
+    text-align: left;
+}
+.presentacion-muestra{
+    display: block;
+}
+
+.presentacion-muestra a{
+    color: rgb(0, 204, 167);
+    padding: 10px;
+    font-size: 20px;
+}
+
+
+.info-usuario{
+    margin: 40px;
+    max-width: 400px;
+    align-items: center;
+}
+.Vehiculos-en-venta-usuario{
+    margin: 30px;
+    display: block;
+}
+.more button, .add-more button{
+    padding: 25px 30px;
+    color: aliceblue;
+    font-size: 20px;
+    margin-top: 110px;
+    background-color: rgb(108, 108, 108);  
+    font-family: 'Times New Roman', Times, serif;  
+}
+.Compartidos{
+    margin: 30px;
+    justify-content: space-around;
+    display: block;
+    background-color: #e8e8e8ec;
+}
+.drdre button{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(157, 219, 255);
+}
+.drdre a{
+    color: rgb(94, 60, 60);
+}
+.en-venta, .compartir{
+    display: flex;
+    justify-content: space-around;
+}
+.foto-usuario, .foto-venta{
+    height: 200px;
+    width: 200px;
+    padding: 0px;
+}
+.nombre-usuario{
+    color: rgb(0, 138, 115);
+    margin: 20px 70px;
+    font-size: 40px;
+}
+.Admin-si{
+    color: crimson;
+    font-size: 150%;
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carro-imagen {
+    width: 80%; /* Establecer el ancho de las imágenes al 80% */
+    height: auto;
+    max-height: 500px; /* Mantener la altura máxima de las imágenes */
+    min-height: 500px; /* Establecer la altura mínima de las imágenes */
+    margin: 0px 100px; /* Asegurarse de que las imágenes estén centradas */
+}
+.contenido {
+    text-align: center;
+    padding: 10px;
+}
+
+.detalless, .precio {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.botonDetalles2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.botonDetalles2:hover {
+    background-color: #0056b3;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: rgb(0, 238, 255);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: blue;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-container input[type="text"] {
+    border: none;
+    padding: 10px;
+    outline: none;
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+}
+
+.search-button {
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-button img {
+    width: 20px;
+    height: 20px;
+}
+.premium-label {
+    color: #3b8a02; /* Elige el color que prefieras */
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.ModeloP2{
+    text-align: center;
+    color: rgb(0, 97, 252);
+    font-size:40px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.MarcaP2{
+    text-align: center;
+    color: rgb(0, 135, 93);
+    font-size:30px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.MarcaP2:hover{
+    color: rgb(0, 173, 81);
+    transition: 0.5s;
+}
+.Emblema2{
+    color:rgb(114, 74, 0);
+    font-size: 20px;
+    margin: 0px;
+}
+.precioP2{
+    color: rgb(2, 99, 2);
+    font-size: 20px;
+    padding: 10px 7px;
+    margin: 0px;
+}
+
+
+/*.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Centrar el carrusel en la página */
+/*}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 300px;
+    height: 300px;
+    display: block;
+    object-fit: cover; /* Esto asegurará que la imagen se ajuste sin distorsionarse */
+/*}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}**/

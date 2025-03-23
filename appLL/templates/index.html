@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_main %}
+{% block title -%}
+{{ tituloH }}
+{%- endblock %}
+{% block content -%}
+
+<body>
+    
+    {{ render_header_main('catalogo', 'Ofertas') }}
+
+    <section class="BLOQUE1">
+        <h2>navega con nosotros</h2>
+        <div id="opciones" class="cuadros">            
+            <div  class="elemento-cuadros">
+                
+                <img src="{{url_for('static', filename='img/ofertas.png')}}" alt="" width="200">
+                <a href="{{ url_for('catalogo') }}"><p>Mejores ofertas</p></a>
+            </div>
+            <div class="elemento-cuadros">
+                <img src="{{ url_for('static', filename='img/Cars_vitrina.jpeg') }}" alt="" width="200" height="350">
+                <a href="{{ url_for('vitrina') }}"><p>Vitrina LL</p></a>
+            </div>
+            <div class="elemento-cuadros">
+                <img src="{{ url_for('static', filename='img/Comparte.avif') }}" alt="no hay" width="200">
+                <a href="{{ url_for('share_vehicle') }}"><p>Comparte tu vehiculo</p></a>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="BLOQUE2" id="Noticias">
+        <h2>Noticias</h2>
+        <div class="noticias-container">
+            {% for noticia in ultimas_noticias %}
+            <div class="noticias">
+                <img src="{{ url_for('get_image', filename=noticia.fotoUrl) }}" alt="Foto de la noticia" width="300px" height="300px">
+                <p >{{ noticia.titulo }}</p>
+                <p >{{ noticia.descripcion }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <p class="seguridad">{{ seguridad }}</p>
+    </section>
+    
+    <br><br><br>
+    <footer>
+        <p class="memorandum">No hay ningun hombre vivo que no sea capaz de hacer más de lo que cree que puede hacer<span class='memorandumS'>- Henry Ford</span></p>
+        <div class="footercontainer">
+            <div class="enlaces-footer">
+                <a href="https://www.facebook.com/profile.php?id=61561786170545" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@elyolfrahd8001"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul>
+                    <li><a href="{{ url_for('creditos_f') }}">Creditos</a></li>
+                    <li><a href="#Noticias">Noticias</a></li>
+                    <li><a href="{{ url_for('Documentacion_LLConsesionaria') }}">Sobre nosotros</a></li>
+                    <li><a href="mailto:isaaclealga@gmail.com">Contactanos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <p>Copyright &copy;2024 Designed by <span class="LL-dev">IsaacLL</span></p>
+        </div>
+    </footer>
+</body>
+{%- endblock %}

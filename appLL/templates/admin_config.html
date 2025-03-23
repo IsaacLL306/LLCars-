@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret!!!</title>
+    
+</head>
+<body>
+    <h1>Hola {{ usuario }}</h1>     
+    
+    {% if user.role == 'admin' %}
+        <p>Aqui podras manipular las noticias de LL Consesionaria y el Catalogo</p> 
+        <p><strong>Bienvenido, Administrador. Aquí tienes acceso a las funciones exclusivas.</strong></p>
+        <p>Para considerar en esta vista</p>
+        <ul>
+            <li> Actualizacion de noticias  --- Listo</li>
+            <li> Creacion de nuevo usuario:Admin --- Listo </li>
+            <LI> Actualizacion de ofertas </LI>
+            <li> Actualizacion de catalogo </li>
+        </ul>
+    {% else %}
+        {% print("No eres admin") %}
+        <p>No puedes manipular aun la vista</p>
+    {% endif %}
+</body>
+</html>
+
+
+

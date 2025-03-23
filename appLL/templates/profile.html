@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_user, render_messages %}
+ {% block title %}-Perfil: {{ nombre_title }}-{% endblock %}
+{% block content %}
+{{ render_header_user('LLCars@') }}
+
+<div class="info-usuario">
+    {{ render_messages(messages) }}
+    {% if user.role =='admin' %}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="foto-usuario"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+        <p class="nombre-usuario">{{ nombre_title }}</p>
+        <p class="Admin-si">{{ user.username }}: Admin</p> <li><a href="{{ url_for('host') }}">Host... Cambiar de lugar luego</a></li>
+    {% else %}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="foto-usuario"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M406.5 399.6C387.4 352.9 341.5 320 288 320l-64 0c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3l64 0c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
+        <p class="nombre-usuario">{{ nombre_title }}</p>
+    {% endif %}
+    <div class="drdre">   
+        <button><a href="{{ url_for('logout') }}">Logout</a></button>
+        <button><a href="{{ url_for('index') }}">Back</a></button>
+    </div>
+</div>
+
+<hr>
+
+<section class="Vehiculos-en-venta-usuario">
+    <h2>Vehiculos en venta de {{ user.username }} <i class="fa-regular fa-circle-user fa-xl"></i></h2>
+    <div class="en-venta">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="foto-venta"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#00ffee" d="M448 80c8.8 0 16 7.2 16 16l0 319.8-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3L48 96c0-8.8 7.2-16 16-16l384 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>
+        <div class="more"><button>add more</button></div>         
+    </div>
+     
+</section>
+<hr>
+<section class="Compartidos">
+    <h2>Compartidos de {{ user.username }} <i class="fa-solid fa-plane fa-xl"></i></h2>
+    <div class="compartir">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="foto-venta"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#3c3e3e" d="M448 80c8.8 0 16 7.2 16 16l0 319.8-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3L48 96c0-8.8 7.2-16 16-16l384 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>
+        <div class="add-more"><button>add more</button></div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+{% endblock %}

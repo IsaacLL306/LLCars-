@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% from '_render_elements.html' import render_header_main, sobre_nosotros, render_footer_general %}
+{% block title -%}
+Vitrina LL
+{%- endblock %}
+{% block content -%}
+
+{{ render_header_main('index', 'INICIO') }}
+
+{{ sobre_nosotros('Ofertas', 'catalogo') }}
+<hr>
+<h1>Bienvenido {{ nombre_user }}</h1>
+<h2>Explora nuestro Catalogo de Vitrina</h2>
+<form action="" method="get" class="search-form">
+    <label for="search"></label>
+    <div class="search-container">
+        <input type="text" name="nickname" id="search" placeholder="search for vehicles(PUBG)">
+        <button type="submit" class="search-button">
+            <img src="{{ url_for('static', filename='img/pngwing.com.png') }}" alt="Buscar">
+        </button>
+    </div>
+</form>
+
+<div class="carousel">
+    <div class="carousel-container">
+        {% for i in carros %}
+        <div class="carousel-slide">
+            <img src="{{ url_for('static', filename='img/cars/' + i.imagen) }}" alt="{{ i.Modelo }}" class="carro-imagen">
+            <div class="contenido">
+                <ul>
+                    <li class="detalless">{{ i.Modelo }} -- {{ i.Marca }}</li>
+                    <li>{{ i.año }}</li>
+                    <li class="precio">{{ i.precio }}</li>
+                </ul>
+                <a href="{{ url_for('ver_vehiculo', modelo=i.Modelo) }}" class="botonDetalles2">Ver vehículo</a>
+>
+
+
+            </div>
+        </div>
+        {% endfor %}
+        {% for j in premium_carros %}
+        <div class="carousel-slide">
+            <img src="{{ url_for('static', filename='img/cars/' + j.imagen) }}" alt="{{ j.Modelo }}" class="carro-imagen">
+            <div class="contenido">
+                
+                <ul>
+                    <p class="MarcaP2">{{ j.Marca }}</p>
+                    <p class="ModeloP2">{{ j.Modelo }}</p>
+                    <p class="Emblema2"> {{ j.Emblema }} </p>
+                    <p class="precioP2">{{ j.precio }}</p>
+                    <p class="premium-label">Premium</p>
+                </ul>
+                <a href="{{ url_for('ver_vehiculo', modelo=j.Modelo) }}" class="botonDetalles2">Ver vehículo</a>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</div>
+<div class="carousel">
+    <div class="carousel-container">
+        {% for l in motos %}
+        <div class="carousel-slide">
+            <img src="{{ url_for('static', filename='img/bikes/' + l.imagen) }}" alt="{{ l.Modelo }}" class="carro-imagen">
+            <div class="contenido">
+                <ul>
+                    <li class="detalless">{{ l.Marca }}</li>
+                    <li class="detalless">{{ l.Modelo }} - {{ l.cc }}cc</li>
+                    <li>{{ l.año }}</li>
+                    <li class="precio">{{ l.precio }}</li>
+                    <li></li>
+                </ul>
+                <a href="{{ url_for('ver_vehiculo', modelo=l.Modelo) }}" class="botonDetalles2">Ver moto</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% for s in superbikes %}
+        <div class="carousel-slide">
+            <img src="{{ url_for('static', filename='img/bikes/' + s.imagen) }}" alt="{{ s.Modelo }}" class="carro-imagen">
+            <div class="contenido">
+                
+                <ul>
+                    <p class="MarcaP2">{{ s.Marca }}</p>
+                    <p class="ModeloP2">{{ s.Modelo }} - {{ s.cc }}cc </p>
+                    <p class="Emblema2"> {{ s.Emblema }} </p>
+                    <p class="precioP2">{{ s.precio }}</p>
+                    <p class="premium-label">Alto CC</p>
+                </ul>
+                <a href="{{ url_for('ver_vehiculo', modelo=s.Modelo) }}" class="botonDetalles2">Ver moto</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+
+
+
+
+
+
+
+{% if user.role == 'admin' %}
+<p>Dear slim, I wrote you but you still aint callin</p>
+<ul>
+    <h3>Ideas por hacer en vitrina</h3>
+    <li>Catalogo completo de carros</li>
+    <li>Catalogo completo de motos</li>
+    <li>Ofertas</li>
+    <p>Solamente dividire la pagina en dos secciones</p>
+</ul>
+{% endif %}
+<footer>
+    {{ render_footer_general('https://www.facebook.com/profile.php?id=61561786170545', 'https://www.instagram.com/isaacll_306/', 'https://www.youtube.com/@elyolfrahd8001') }}
+</footer>
+
+{%- endblock %}

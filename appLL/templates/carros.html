@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Vehículo</title>
+    <style>
+        /* Estilos básicos para mejorar la visualización */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .carro {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .carro img {
+            display: block;
+            margin: 0 auto 15px auto;
+            border-radius: 8px;
+        }
+        .contenido p {
+            margin: 10px 0;
+        }
+        .precio {
+            font-weight: bold;
+            color: #e63946;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Detalles del Vehículo</h1>
+    <div class="carro">
+        <img src="{{ url_for('static', filename=('img/bikes/' if vehiculo in Motos + motos_altoCC else 'img/cars/') + vehiculo.imagen) }}" 
+             alt="Imagen del {{ vehiculo.Marca }} {{ vehiculo.Modelo }}" height="250" width="250">
+        <div class="contenido">
+            <p class="detalless">{{ vehiculo.Marca }} {{ vehiculo.Modelo }} - Año: {{ vehiculo.año }}</p>
+            <p class="precio">Precio: {{ vehiculo.precio }}</p>
+            <p>{{ vehiculo.descripcion }}</p>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a href="{{ url_for('catalogo') }}">Ir a Catálogo</a>
+    </div>
+    <div style="text-align: center;">
+        <a href="{{ url_for('vitrina') }}">Ir a VitrinaLL</a>
+    </div>
+</body>
+<!-- <body>
+    <h1>Detalles del Vehículo</h1>
+    <div class="carro">
+        <img src="{{ url_for('static', filename=('img/bikes/' if vehiculo in Motos + motos_altoCC else 'img/cars/') + vehiculo.imagen) }}" 
+             alt="Imagen del {{ vehiculo.Marca }} {{ vehiculo.Modelo }}" height="250" width="250">
+        <div class="contenido">
+            <p class="detalless">{{ vehiculo.Marca }} {{ vehiculo.Modelo }} - Año: {{ vehiculo.año }}</p>
+            <p class="precio">Precio: {{ vehiculo.precio }}</p>
+            <p>{{ vehiculo.descripcion }}</p>
+        </div>
+    </div>
+    <a href="{{ url_for('catalogo') }}">Volver al catálogo</a>
+</body>
+</html> -->
+</html>
+
